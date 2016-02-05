@@ -8,12 +8,12 @@ public class Main {
 
     public static void main (String[] args){
         Agent[] agents = new Agent[6];
-        agents[0]= new DefectAgent();
-        agents[1]= new MixedStrategy();
-        agents[2]= new MoveProbEqualOpponentsMoveProb();
+        agents[0]= new CoopAgent();
+        agents[1]= new DefectAgent();
+        agents[2]= new TitForTAtAgent();
         agents[3]= new TitEveryOtherTatAgent();
-        agents[4]= new TitForTAtAgent();
-        agents[5]= new CoopAgent();
+        agents[4]= new MixedStrategy();
+        agents[5]= new MoveProbEqualOpponentsMoveProb();
         playTournament(agents,10);
         playTournament(agents,20);
         playTournament(agents,30);
@@ -43,7 +43,7 @@ public class Main {
             a1Moves.add(a1Move);
             a2Moves.add(a2Move);
         }
-        double[] scores = {a1Payoff/rounds,a2Payoff/rounds};
+        double[] scores = {a1Payoff/(double)rounds,a2Payoff/(double)rounds};
         return scores;
     }
 
@@ -61,7 +61,7 @@ public class Main {
             }
         }
         for (int i=0; i<agents.length; i++){
-            F_SCORE[i] = totalScores[i]/5;
+            F_SCORE[i] = totalScores[i]/(double)6;
             System.out.println("F-SCORE of agent#"+(i+1)+": "+F_SCORE[i]+" after "+rounds+" rounds");
         }
 
