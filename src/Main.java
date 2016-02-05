@@ -24,11 +24,9 @@ public class Main {
                 if (a2Move.equals(Agent.Action.DEFECT)){
                     a1Payoff += 2;
                     a2Payoff += 2;}
-                else{
-                    a1Payoff += 5;}}
+                else a1Payoff += 5;}
             else {
-                if (a2Move.equals(Agent.Action.DEFECT)){
-                    a2Payoff += 5;}
+                if (a2Move.equals(Agent.Action.DEFECT)) a2Payoff += 5;
                 else{
                     a1Payoff += 3;
                     a2Payoff += 3;}}
