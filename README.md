@@ -1,0 +1,2 @@
+# iteratedPrisonersDilemma
+Game theory exercise
