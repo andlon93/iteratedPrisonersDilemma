@@ -10,6 +10,9 @@ public class TitEveryOtherTatAgent implements Agent {
     @Override
     public Action dilemma(List<Action> opponentPreviousActions){
         int n = opponentPreviousActions.size();
+
+        if(n<=1){return Action.COOPERATE;}
+
         if (opponentPreviousActions.get(n-1) == Action.DEFECT &&
                 opponentPreviousActions.get(n-2) == Action.DEFECT) {
             return Action.DEFECT;

@@ -11,7 +11,10 @@ public class MixedStrategy implements Agent {
 
     @Override
     public Action dilemma(List<Action> opponentPreviousActions) {
+
         int n = opponentPreviousActions.size();
+        if(n==0){return Action.COOPERATE;}
+        if(n==1){return titForTat(opponentPreviousActions);}
         Random rng = new Random();
         int rn = rng.nextInt(10);
         if (rn <= 4){return titForTat(opponentPreviousActions);}
@@ -20,6 +23,7 @@ public class MixedStrategy implements Agent {
 
     private Action titEveryOtherTat(List<Action> opponentPreviousActions){
         int n = opponentPreviousActions.size();
+
         if (opponentPreviousActions.get(n-1) == Action.DEFECT &&
                 opponentPreviousActions.get(n-2) == Action.DEFECT) {
             return Action.DEFECT;

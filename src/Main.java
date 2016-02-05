@@ -7,10 +7,20 @@ import java.util.List;
 public class Main {
 
     public static void main (String[] args){
+        Agent[] agents = new Agent[6];
+        agents[0]= new DefectAgent();
+        agents[1]= new MixedStrategy();
+        agents[2]= new MoveProbEqualOpponentsMoveProb();
+        agents[3]= new TitEveryOtherTatAgent();
+        agents[4]= new TitForTAtAgent();
+        agents[5]= new CoopAgent();
+        playTournament(agents,10);
+        playTournament(agents,20);
+        playTournament(agents,30);
 
     }
 
-    private double[] playMatches(Agent a1, Agent a2, int rounds){
+    private static double[] playMatches(Agent a1, Agent a2, int rounds){
         ArrayList<Agent.Action> a1Moves = new ArrayList<Agent.Action>();
         ArrayList<Agent.Action> a2Moves = new ArrayList<Agent.Action>();
 
@@ -37,7 +47,7 @@ public class Main {
         return scores;
     }
 
-    private void playTournament(Agent[] agents, int rounds){
+    private static void playTournament(Agent[] agents, int rounds){
         double[] totalScores = new double[agents.length];
         double[] F_SCORE = new double[agents.length];
 

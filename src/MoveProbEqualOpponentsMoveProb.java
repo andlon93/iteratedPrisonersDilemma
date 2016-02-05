@@ -11,13 +11,18 @@ public class MoveProbEqualOpponentsMoveProb implements Agent {
         int n = opponentPreviousActions.size();
 
         //if it is the first move -> 80% of ccoperating
-        if(n==0){int rn = rng.nextInt(10);if (rn < 8){return Action.COOPERATE;}}
+        if(n==0){
+            int rn = rng.nextInt(10);
+            if (rn < 8){return Action.COOPERATE;}
+            else {return Action.DEFECT;}
+        }
 
         //count number of coops for opponent
         int numberOfCoops = 0;
         for (Action a : opponentPreviousActions){
             if (a == Action.COOPERATE){numberOfCoops++;}
         }
+
         int rn = rng.nextInt(n);
 
         //do action with same prob as opponent
