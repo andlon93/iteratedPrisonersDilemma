@@ -54,6 +54,7 @@ public class Main {
         }
         for (int i=0; i<agents.length; i++){
             F_SCORE[i] = totalScores[i]/5;
+            System.out.println("F-SCORE of agent#"+(i+1)+": "+F_SCORE[i]+" after "+rounds+" rounds");
         }
 
     }
